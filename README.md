@@ -14,6 +14,5 @@ Este repositório contém exemplos de aplicações utilizando Recuperação de I
 
 A técnica de prompting utilizada é o **Chain-of-Thought Prompting**, que é particularmente eficaz para elicitar raciocínio em LLMs. Esta abordagem consiste em fornecer ao modelo uma cadeia de raciocínio, o que melhora o desempenho em tarefas complexas como raciocínio aritmético, senso comum e manipulação simbólica.
 
-Baseado em experimentos documentados, como o artigo *"Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"*.
-
+Baseado em experimentos documentados, como o artigo ["Chain-of-Thought Prompting Elicits Reasoning in Large Language Models"](https://arxiv.org/abs/2201.11903), essa técnica foi usada para obter ganhos de desempenho notáveis em tarefas de raciocínio.
 

@@ -123,8 +123,5 @@ dmypy.json
 config.ini
 db_focus.ini
 db_corporativo.ini
-Frontend/core/media/
+vectorstore/
 
-pdf_ppg/
-audio/
-Experimentos/LLM/Phi-3-mini-4k-instruct-q4.gguf

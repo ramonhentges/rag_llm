@@ -28,6 +28,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+output_folder = 'db_faiss_chat'
+
+os.makedirs(output_folder, exist_ok=True)
+
 st.set_page_config(
     page_title="📚 DocumentAI Chat",
     page_icon="📚",
@@ -112,7 +116,7 @@ def config_retriever(uploads, k, fetch_k):
     embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
 
     vectorstore = FAISS.from_documents(splits, embeddings)
-    vectorstore.save_local('vectorstore/db_faiss_chat')
+    vectorstore.save_local(f'vectorstore/{output_folder}')
 
     retriever = vectorstore.as_retriever(search_type="mmr", 
                                          search_kwargs={'k': k, 'fetch_k': fetch_k})
@@ -121,7 +125,7 @@ def config_retriever(uploads, k, fetch_k):
 # Carregar embeddings locais
 def load_embeddings():
     embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
-    vectorstore = FAISS.load_local('vectorstore/db_faiss_chat', embeddings, allow_dangerous_deserialization=True)
+    vectorstore = FAISS.load_local(f'vectorstore/{output_folder}', embeddings, allow_dangerous_deserialization=True)
     retriever = vectorstore.as_retriever(search_type="mmr", search_kwargs={'k': 3, 'fetch_k': 8})
     return retriever
 

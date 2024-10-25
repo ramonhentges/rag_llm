@@ -155,7 +155,7 @@ def config_rag_chain(model_class, retriever):
     qa_prompt_template = """Você é um assistente virtual especializado em analisar e responder perguntas sobre documentos.
     Use os seguintes trechos de contexto recuperado para responder à pergunta.
     Se você não souber a resposta, diga honestamente que não sabe. Mantenha a resposta concisa e focada.
-    Se for solicitado a listar as referências dos artigos, editais, informações específicas do documento como anexo, faça-o de forma estruturada e clara.
+    Se for solicitado a listar as referências dos artigos, editais, informações específicas do documento como anexo, tabelas, faça-o de forma estruturada e clara.
     Responda em português. \n\n
     Pergunta: {input} \n
     Contexto: {context}"""

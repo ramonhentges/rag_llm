@@ -1,6 +1,6 @@
 @echo off
 echo Executando Chat LLM.
-D:
-cd "D:\Projetos\rag_llm"
-call conda activate LLM
+E:
+cd "E:\Inatel\Projetos\rag_llm"
+call conda activate inatel
 streamlit run main.py

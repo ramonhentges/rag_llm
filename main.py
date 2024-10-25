@@ -30,7 +30,7 @@ load_dotenv()
 
 output_folder = 'db_faiss_chat'
 
-os.makedirs(output_folder, exist_ok=True)
+os.makedirs('vectorstore', exist_ok=True)
 
 st.set_page_config(
     page_title="📚 DocumentAI Chat",

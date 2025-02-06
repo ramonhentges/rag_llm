@@ -27,6 +27,8 @@ Assim que a aplicação iniciar, acesse em seu navegador o endereço:
 
 Clique em `Gerar Novos Embeddings`, escolha o arquivo para ser analisado, e inicie a conversa com a aplicação, conforme o [exemplo](/assets/streamlit.webm).
 
+![exemplo-gif](/assets/streamlit.gif)
+
 ### Jupyter notebook
 
 Para testar o notebook, veja o token gerado para o servidor do jupyter com o comando

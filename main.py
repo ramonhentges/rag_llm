@@ -1,30 +1,20 @@
-import streamlit as st
-from langchain_core.messages import AIMessage, HumanMessage
-from langchain_core.prompts import MessagesPlaceholder
-
-from langchain_ollama import ChatOllama
-from langchain_openai import ChatOpenAI
-
-from langchain_core.output_parsers import StrOutputParser
-from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
-
-import torch
-from langchain_huggingface import ChatHuggingFace
-from langchain_community.llms import HuggingFaceHub
-
-import faiss
-import tempfile
 import os
-import time
+import tempfile
 
-from langchain_community.vectorstores import FAISS
-from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain.chains import create_history_aware_retriever, create_retrieval_chain
+import streamlit as st
+from dotenv import load_dotenv
+from langchain.chains import (create_history_aware_retriever,
+                              create_retrieval_chain)
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.document_loaders import PyPDFLoader
-
-from dotenv import load_dotenv
+from langchain_community.vectorstores import FAISS
+from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.prompts import (ChatPromptTemplate, MessagesPlaceholder,
+                                    PromptTemplate)
+from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_ollama import ChatOllama
+from langchain_openai import ChatOpenAI
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 load_dotenv()
 
@@ -152,7 +142,7 @@ def config_rag_chain(model_class, retriever):
 
     history_aware_retriever = create_history_aware_retriever(llm=llm, retriever=retriever, prompt=context_q_prompt)
 
-    qa_prompt_template = """Você é um assistente virtual especializado em analisar e responder perguntas sobre documentos.
+    qa_prompt_template = """Você é um assistente virtual especializado em analisar e responder perguntas sobre medicamentos.
     Use os seguintes trechos de contexto recuperado para responder à pergunta.
     Se você não souber a resposta, diga honestamente que não sabe. Mantenha a resposta concisa e focada.
     Se for solicitado a listar as referências dos artigos, editais, informações específicas do documento como anexo, tabelas, faça-o de forma estruturada e clara.

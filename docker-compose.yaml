@@ -1,0 +1,32 @@
+services:
+  llm:
+    build:
+      context: .
+      dockerfile: "dev.Dockerfile"
+    ports:
+      - 3011:8501
+    volumes:
+      - .:/app:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: "jupyter.Dockerfile"
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/app:rw
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

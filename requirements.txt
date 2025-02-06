@@ -1,0 +1,8 @@
+langchain_core
+langchain-community
+langchain_ollama
+langchain_huggingface
+langchain_openai
+streamlit
+faiss-cpu
+pypdf
